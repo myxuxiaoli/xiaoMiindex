@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <link rel="stylesheet" href="./css/ar.css">
+    <link rel="stylesheet" href="./font-bootstrap/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./dist/css/swiper.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" class="ico" />
+    <title>小米首页</title>
+</head>
+<script src="./js/jquery-3.1.1.min.js"></script>
+<script src="./js/template.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./dist/js/swiper.jquery.js"></script>
+<script src="./js/index.js"></script>
+
+
+<body>
+    <!--顶部黑色框开始  -->
+    <div class="top-container">
+        <div class="top-bar">
+            <div class="topbar-nav">
+                <ul class="nav-wrap">
+                    <li><a href="https://www.mi.com/index.html">小米商城</a></li>
+                    <li>|</li>
+                    <li><a href="http://www.miui.com/">MIUI</a></li>
+                    <li>|</li>
+                    <li><a href="http://www.miliao.com/">米聊</a></li>
+                    <li>|</li>
+                    <li><a href="http://game.xiaomi.com/hy/index.html">游戏</a></li>
+                    <li>|</li>
+                    <li><a href="http://www.duokan.com/">多看阅读</a></li>
+                    <li>|</li>
+                    <li><a href="https://i.mi.com/">云服务</a></li>
+                    <li>|</li>
+                    <li><a href="http://www.mi.com/appdownload/">小米网移动版</a></li>
+                    <li>|</li>
+                    <li><a href="https://static.mi.com/feedback/">问题反馈</a></li>
+                    <li>|</li>
+                    <li><a href="https://www.mi.com/index.html">Select Region</a></li>
+                </ul>
+            </div>
+            <div class="topbar-info">
+                <a href="http://order.mi.com/site/login?redirectUrl=http://www.mi.com/index.html">登陆</a>
+                <a>
+                <a href="https://account.xiaomi.com/pass/register">注册</a>
+            </div>
+            <div class="topbar-cart">
+                <div class="cart" id="cart">
+                    <i class="iconfont">&#58888;</i>
+                    <a id="shopcar" href="http://static.mi.com/cart/"> 购物车( <span>0<span>)</span></span></a>
+                </div>
+                <div class="cart-list" style="display:none;"> 购物车中还没有商品，赶快选购吧！</div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <!-- 顶部黑色框结束 -->
+    <!--顶部导航栏部分开始  -->
+    <div class="top-header">
+        <div class="headcontainer">
+            <a href="#" class="icon-mi"></a>
+            <a href="#" class="pic-gif"></a>
+            <div class="header-navs">
+                <ul class="navs" id="navs">
+                    <!-- <li class="product"><a href="#">小米手机</a></li>-->
+                    <script id="tp1" type="text/html">
+                        {{each items}}
+                        <li type="{{$value.type}}"><a href="#">{{$value.name}}</a></li>
+                        {{/each}}
+                    </script>
+                </ul>
+            </div>
+            <div class="header-search">
+                <ul class="hot-word">
+                    <li>红米pro</li>
+                    <li>小米笔记本air</li>
+                </ul>
+                <input type="text" class="search-ipt" type="search" name="search">
+                <label for="search" class="search-btn">
+                    <i class="iconfont">&#58891;</i>
+                </label>
+                <ul class="search-result" id="search-result" style="display:none;">
+                    <li>
+                        <span>小米手机5</span>
+                        <s>约有11件</s>
+                    </li>
+                    <li>
+                        <span>空气净化器2</span>
+                        <s>约有1件</s>
+                    </li>
+                    <li>
+                        <span>活塞耳机</span>
+                        <s>约有4件</s>
+                    </li>
+                    <li>
+                        <span>小米路由器</span>
+                        <s>约有8件</s>
+                    </li>
+                    <li>
+                        <span>移动电源</span>
+                        <s>约有21件</s>
+                    </li>
+                    <li>
+                        <span>运动相机</span>
+                        <s>约有3件</s>
+                    </li>
+                    <li>
+                        <span>小米摄像机</span>
+                        <s>约有2件</s>
+                    </li>
+                    <li>
+                        <span>小米体重秤</span>
+                        <s>约有1件</s>
+                    </li>
+                    <li>
+                        <span>小米插线板</span>
+                        <s>约有13件</s>
+                    </li>
+                    <li>
+                        <span>配件优惠套装</span>
+                        <s>约有2件</s>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="header-menu" id="header-menu">
+            <ul class="menus" id="menus">
+                <script type="text/html" id="tp2">
+                    {{each items}}
+                    <li class="product">
+                        <a href="{{$value.sourcePath}}"> 
+                       <img alt="" class="product-img"  src="{{$value.imgUrl}}"> 
+                    </a>
+                        <div class="product-name">{{$value.name}}</div>
+                        <div class="product-price">{{$value.price}}</div>
+                    </li>
+                    {{/each}}
+                </script>
+            </ul>
+        </div>
+    </div>
+    <!-- 顶部导航栏部分结束 -->
+    <!--轮播图部分开始  -->
+    <div class="top-banner">
+        <!--左边栏部分  -->
+        <div class="site-category">
+            <ul class="side-left" id="side-left">
+                <script type="text/html" id="tp3">
+                    {{each sideItems}}
+                    <li class="side-item">{{$value.content}}</li>
+                    {{/each}}
+                </script>
+            </ul>
+            <div class="site-category-detail" style="display:none;">
+                <ul class="category-items" id="category-items">
+                    <script type="text/html" id="tp4">
+                        {{each goods}}
+                        <li class="category-goods">
+                            <a class="goods-link" href="{{$value.sourceUrl}}">
+                                <img alt="" src="{{$value.imgUrl}}">
+                                <div class="text-name"> {{$value.name}} </div> 
+                            </a>
+                            <a class="goods-buy-link" href="{{$value.buyUrl}}"> 选购 </a>
+                        </li>
+                        {{/each}}
+                    </script>
+                </ul>
+            </div>
+
+        </div>
+        <!--右边轮播图部分-->
+        <div class="swiper-container" id="top-swiper">
+            <div class="swiper-wrapper">
+                <script type="text/html" id="tp5">
+                    {{each slide}}
+                    <div class="swiper-slide"><a href="{{$value.sourceUrl}}"> <img alt="" src="{{$value.imgUrl}}"> </a></div>
+                    {{/each}}
+                </script>
+                <script>
+                    var swiper = new Swiper('#top-swiper', {
+                        nextButton: '.swiper-button-next',
+                        prevButton: '.swiper-button-prev',
+                        paginationClickable: true,
+                        spaceBetween: 0,
+                        centeredSlides: true,
+                        loop: true,
+                        autoplay: 1000,
+                        autoplayDisableOnInteraction: false,
+                        effect: 'fade'
+                    });
+                </script>
+            </div>
+            <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+        </div>
+    </div>
+    <!-- 轮播图部分结束 -->
+    <!--轮播图下面选购部分开始  -->
+    <div class="top-sub">
+        <div class="sub-1">
+            <ul class="channels">
+                <li class="channel"> <a href="http://www.mi.com/compare/"> <i class="iconfont">&#58919;</i> <p class="channel-txt"> 选购手机 </p> </a>                    </li>
+                <div class="line-vertical"> </div>
+                <li class="channel"> <a href="http://qiye.mi.com/"> <i class="iconfont">&#58967;</i> <p class="channel-txt"> 企业团购 </p> </a></li>
+                <div class="line-vertical"> </div>
+                <li class="channel"> <a href="http://item.mi.com/re"> <i class="iconfont">&#59837;</i> <p class="channel-txt"> 官翻产品 </p> </a>                    </li>
+                <div class="line-horizontal"> </div>
+                <div class="line-horizontal"> </div>
+                <div class="line-horizontal"> </div>
+                <li class="channel"> <a href="http://huanxin.mi.com/product/list"> <i class="iconfont">&#58994;</i> <p class="channel-txt">小米移动</p> </a></li>
+                <div class="line-vertical"> </div>
+                <li class="channel"> <a href="http://huanxin.mi.com/product/list"> <i class="iconfont">&#58945;</i> <p class="channel-txt"> 以旧换新 </p> </a></li>
+                <div class="line-vertical"> </div>
+                <li class="channel"> <a href="http://recharge.10046.mi.com/"> <i class="iconfont">&#58994;</i> <p class="channel-txt"> 话费充值 </p> </a></li>
+            </ul>
+        </div>
+        <ul class="subs">
+            <li> <a href="http://hd.mi.com/y/08191p/index.html" class="sub-item"> <img src="./images/homeHero-01.jpg" alt=""> </a></li>
+            <li> <a href="http://item.mi.com/buyphone/redmipro/" class="sub-item"> <img src="./images/homeHero-02.jpg" alt=""> </a></li>
+            <li> <a href="http://item.mi.com/static/buymipad" class="sub-item"> <img src="./images/homeHero-03.jpg" alt=""> </a></li>
+        </ul>
+    </div>
+    <!-- 轮播图下面选购部分结束 -->
+    <!-- 商品__智能硬件部分开始 -->
+    <div class="goods-container">
+        <div class="boxs-container">
+            <div class="boxs">
+                <div class="boxs-top">
+                    <h3>智能硬件</h3>
+                    <a href="//www.mi.com/smart/"> 查看全部 <i class="iconfont">&#58902;</i></a>
+                </div>
+                <div class="boxs-content clearfix">
+                    <div class="box-left">
+                        <a href="http://www.mi.com/scooter/">
+                          <img src="./images/hardware.jpg" alt=""> 
+                        </a>
+                    </div>
+                    <div class="box-right">
+                        <ul class="box-list" id="box-list">
+                            <script type="text/html" id="tp6">
+                                {{each boxLi}}
+                                <li class="box-item"> <span class="discount-label {{$value.discountType}}">{{$value.discount}}</span> <a href="{{$value.sourceUrl}}"> <img alt="" src="{{$value.imgUrl}}"> <h3 class="box-title">{{$value.title}}</h3> </a>
+                                    <p class="box-desc"> {{$value.desc}}</p>
+                                    <p class="box-price">{{$value.price}}</p>
+                                </li>
+                                {{/each}}
+                            </script>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--商品__智能硬件部分结束  -->
+        <!--商品——搭配部分开始  -->
+        <div class="around-container">
+            <div class="goods-top clearfix">
+                <h3 class="top-title">搭配</h3>
+                <ul class="top-sub" id="topSub">
+                    <script type="text/html" id="tpLi">
+                        {{each li}}
+                        <li>{{$value.name}}</li>
+                        {{/each}}
+                    </script>
+                </ul>
+            </div>
+            <div class="goods-content clearfix">
+                <div class="goods-left">
+                    <ul class="goods-left" id="goods-left">
+                        <script type="text/html" id="tpgoods">
+                            {{each goods}}
+                            <li class="goods-left-item">
+                                <a href="{{$value.sourceUrl}}"> 
+                                    <img alt="" src="{{$value.imgUrl}}"> 
+                                </a>
+                            </li>
+                            {{/each}}
+                        </script>
+                    </ul>
+                </div>
+                <div class="goods-right">
+                    <div class="goods-right">
+                        <ul class="goods-right-content" id="rightgoo">
+                            <script type="text/html" id="goodsright">
+                                {{each rightgoods}}
+                                <li class="goods-right-item"> <span class="discount-label"></span> <a href="{{$value.sourceUrl}}"> <img alt="" src="{{$value.imgUrl}}"> <h3 class="goods-title">{{$value.title}}</h3> </a>
+                                    <p class="goods-price"> {{$value.price}} </p>
+                                    <p class="goods-rank"> {{$value.heat}}人评价 </p>
+                                    <div class="review" style="display: none;"> <span class="review-content">{{$value.reviewDesc}}</span> <span class="review-author">来自于{{$value.reviewAuthor}}的评价</span></div>
+                                </li>
+                                {{/each}}
+                            </script>
+
+                        </ul>
+
+
+
+                        <ul class="goods-right-content" id="rightgood">
+                            <script type="text/html" id="goodsright">
+                                {{each rightgoods}}
+                                <li class="goods-right-item"> <span class="discount-label"></span> <a href="{{$value.sourceUrl}}"> <img alt="" src="{{$value.imgUrl}}"> <h3 class="goods-title">{{$value.title}}</h3> </a>
+                                    <p class="goods-price"> {{$value.price}} </p>
+                                    <p class="goods-rank"> {{$value.heat}}人评价 </p>
+                                    <div class="review" style="display: none;"> <span class="review-content">{{$value.reviewDesc}}</span> <span class="review-author">来自于{{$value.reviewAuthor}}的评价</span></div>
+                                </li>
+                                {{/each}}
+                            </script>
+
+                        </ul>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--商品——配件部分开始  -->
+        <div class="around-container">
+            <div class="goods-top clearfix">
+                <h3 class="top-title">配件</h3>
+                <ul class="top-sub" id="topSub2">
+                    <script type="text/html" id="tpLi2">
+                        {{each li}}
+                        <li>{{$value.name}}</li>
+                        {{/each}}
+                    </script>
+                </ul>
+            </div>
+            <div class="goods-content clearfix">
+                <div class="goods-left">
+                    <ul class="goods-left" id="goods-left2">
+                        <script type="text/html" id="tpgoods2">
+                            {{each goods2}}
+                            <li class="goods-left-item">
+                                <a href="{{$value.sourceUrl}}"> 
+                                    <img alt="" src="{{$value.imgUrl}}"> 
+                                </a>
+                            </li>
+                            {{/each}}
+                        </script>
+                    </ul>
+                </div>
+                <div class="goods-right">
+                    <div class="goods-right">
+                        <ul class="goods-right-content" id="rightgoo2">
+                            <script type="text/html" id="goodsright2">
+                                {{each rightgoods2}}
+                                <li class="goods-right-item"> <span class="discount-label"></span> <a href="{{$value.sourceUrl}}"> <img alt="" src="{{$value.imgUrl}}"> <h3 class="goods-title">{{$value.title}}</h3> </a>
+                                    <p class="goods-price"> {{$value.price}} </p>
+                                    <p class="goods-rank"> {{$value.heat}}人评价 </p>
+                                    <div class="review" style="display: none;"> <span class="review-content">{{$value.reviewDesc}}</span> <span class="review-author">来自于{{$value.reviewAuthor}}的评价</span></div>
+                                </li>
+                                {{/each}}
+                            </script>
+                            <ul class="goods-right-small">
+                                <li class="item-small">
+                                    <a href="//item.mi.com/1154100024.html">
+                                        <div class="desc">
+                                            <h3 class="title"> ZMI无限拓展数据线 120cm </h3> <span class="price"> 29元 </span> </div>
+                                        <img class="small-img" alt="" src="//i2.mifile.cn/a1/T1Zp__B5Ev1RXrhCrK.jpg?width=80&amp;height=80">                                        </a>
+                                </li>
+                                <li class="item-small read-more">
+                                    <a href="//list.mi.com/pjrm">
+                                        <div class="desc">
+                                            <h3 class="title"> 浏览更多 </h3> <span class="price hot"> 热门 </span> </div> <i class="fa fa-arrow-circle-right fa-4x icon-arrow"></i>                                        </a>
+                                </li>
+                            </ul>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--商品——周边部分开始  -->
+        <div class="around-container">
+            <div class="goods-top clearfix">
+                <h3 class="top-title">周边</h3>
+                <ul class="top-sub" id="topSub3">
+                    <script type="text/html" id="tpLi3">
+                        {{each li}}
+                        <li>{{$value.name}}</li>
+                        {{/each}}
+                    </script>
+                </ul>
+            </div>
+            <div class="goods-content clearfix">
+                <div class="goods-left">
+                    <ul class="goods-left" id="goods-left3">
+                        <script type="text/html" id="tpgoods3">
+                            {{each goods3}}
+                            <li class="goods-left-item">
+                                <a href="{{$value.sourceUrl}}"> 
+                                    <img alt="" src="{{$value.imgUrl}}"> 
+                                </a>
+                            </li>
+                            {{/each}}
+                        </script>
+                    </ul>
+                </div>
+                <div class="goods-right">
+                    <div class="goods-right">
+                        <ul class="goods-right-content" id="rightgoo3">
+                            <script type="text/html" id="goodsright3">
+                                {{each rightgoods3}}
+                                <li class="goods-right-item"> <span class="discount-label"></span> <a href="{{$value.sourceUrl}}"> <img alt="" src="{{$value.imgUrl}}"> <h3 class="goods-title">{{$value.title}}</h3> </a>
+                                    <p class="goods-price"> {{$value.price}} </p>
+                                    <p class="goods-rank"> {{$value.heat}}人评价 </p>
+                                    <div class="review" style="display: none;"> <span class="review-content">{{$value.reviewDesc}}</span> <span class="review-author">来自于{{$value.reviewAuthor}}的评价</span></div>
+                                </li>
+                                {{/each}}
+                            </script>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--商品——推荐部分  -->
+        <div class="recommend-container" id="ad">
+            <div class="recommend-header">
+                <h2 class="title">为你推荐</h2>
+                <div class="control-part">
+                    <span class="control control-left disable" id="left">&lt;</span>
+                    <span class="control control-right" id="right">&gt;</span>
+                </div>
+            </div>
+            <div class="recommend-wrap" id="wrap">
+                <script type="text/html" id="recommend">
+                    <ul style="margin-left: 0px;" class="recommend-content clearfix">
+                        {{each li}}
+                        <li class="recomend-item">
+                            <a href="{{$value.sourceUrl}}"> 
+                            <img src="{{$value.imgUrl}}" class="item-image" alt=""> 
+                            <h3 class="item-name">{{$value.name}}</h3>
+                            <p class="item-price"> {{$value.price}} </p>
+                            <p class="item-favorable"> {{$value.favorable}}人评价 </p> 
+                        </a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </script>
+            </div>
+        </div>
+
+        <!--商品——热评产品部分  -->
+        <div class="comment">
+            <div class="box-hd">
+                <h2 class="title">热评产品</h2>
+            </div>
+            <div class="box-bd">
+                <ul class="review-list clearfix" id="commentUl">
+                    <script type="text/html" id="commentTp">
+                        {{each commentLi}}
+                        <li class="review-item">
+                            <div class="figure-img">
+                                <a href="{{$value.sourceUrl}}">
+                                  <img src="{{$value.imageUrl}}" width="296" height="220" alt="小米笔记本Air 12.5英寸">
+                                </a>
+                            </div>
+                            <p class="review"><a href="{{$value.sourceUrl}}">{{$value.review}}</a></p>
+                            <p class="author"> 来自于 {{$value.author}} 的评价</p>
+                            <div class="info">
+                                <h3 class="title"><a href="{{$value.sourceUrl}}">{{$value.name}}</a></h3>
+                                <span class="sep">|</span>
+                                <p class="price"><span class="num">{{$value.price}}</span>元</p>
+                            </div>
+                        </li>
+                        {{/each}}
+                    </script>
+                </ul>
+            </div>
+        </div>
+        <!--内容部分开始  -->
+        <div id="content">
+            <div class="con-hd">
+                <h2 class="title">内容</h2>
+            </div>
+            <div class="con-bd">
+                <ul class="content-list clearfix" id="content-list">
+                    <li class="content-item book">
+                        <h2 class="tit">图书</h2>
+                        <div class="carousel">
+                            <ul class="item-list" id="books">
+                                <script type="text/html" id="booksi">
+                                    {{each book}}
+                                    <li class="slides">
+                                        <h4 class="name">{{$value.title}}</h4>
+                                        <p class="desc">{{$value.desc}}</p>
+                                        <p class="desc1">{{$value.desc1}}</p>
+                                        <p class="desc2">{{$value.desc2}}</p>
+                                        <p class="price">{{$value.price}}</p>
+                                        <div class="figure-img">
+                                            <a href="{{$value.sourceUrl}}" class="figure">
+                                              <img src="{{$value.imgUrl}}" alt="">
+                                            </a>
+                                        </div>
+                                    </li>
+                                    {{/each}}
+                                </script>
+                            </ul>
+                        </div>
+                        <div class="buttonRight buttons" id="r1"> &gt;</div>
+                        <div class="buttonLeft buttons" id="l1"> &lt;</div>
+                        <div class="paginations">
+                            <span class="active"></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </li>
+                    <li class="content-item theme">
+                        <h2 class="tit">MIUI 主题</h2>
+                        <div class="carousel">
+                            <ul class="item-list" id="theme">
+                                <script type="text/html" id="themes">
+                                    {{each theme}}
+                                    <li class="slides">
+                                        <h4 class="name">{{$value.title}}</h4>
+                                        <p class="desc">{{$value.desc}}</p>
+                                        <p class="desc1">{{$value.desc1}}</p>
+                                        <p class="desc2">{{$value.desc2}}</p>
+                                        <p class="price">{{$value.price}}</p>
+                                        <div class="figure-img">
+                                            <a href="{{$value.sourceUrl}}" class="figure">
+                                              <img src="{{$value.imgUrl}}" alt="">
+                                            </a>
+                                        </div>
+                                    </li>
+                                    {{/each}}
+                                </script>
+                            </ul>
+                        </div>
+                        <div class="buttonRight buttons" id="r2"> &gt;</div>
+                        <div class="buttonLeft buttons" id="l2"> &lt;</div>
+                        <div class="paginations">
+                            <span class="active"></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </li>
+                    <li class="content-item game">
+                        <h2 class="tit">游戏</h2>
+                        <div class="carousel">
+                            <ul class="item-list" id="games">
+                                <script type="text/html" id="gaming">
+                                    {{each game}}
+                                    <li class="slides">
+                                        <h4 class="name">{{$value.title}}</h4>
+                                        <p class="desc">{{$value.desc}}</p>
+                                        <p class="desc1">{{$value.desc1}}</p>
+                                        <p class="desc2">{{$value.desc2}}</p>
+                                        <p class="price">{{$value.price}}</p>
+                                        <div class="figure-img">
+                                            <a href="{{$value.sourceUrl}}" class="figure">
+                                              <img src="{{$value.imgUrl}}" alt="">
+                                            </a>
+                                        </div>
+                                    </li>
+                                    {{/each}}
+                                </script>
+                            </ul>
+                        </div>
+                        <div class="buttonRight buttons" id="r3"> &gt;</div>
+                        <div class="buttonLeft buttons" id="l3"> &lt;</div>
+                        <div class="paginations">
+                            <span class="active"></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </li>
+                    <li class="content-item apps">
+                        <h2 class="tit">应用</h2>
+                        <div class="carousel">
+                            <ul class="item-list" id="apps">
+                                <script type="text/html" id="appss">
+                                    {{each app}}
+                                    <li class="slides">
+                                        <h4 class="name">{{$value.title}}</h4>
+                                        <p class="desc">{{$value.desc}}</p>
+                                        <p class="desc1">{{$value.desc1}}</p>
+                                        <p class="desc2">{{$value.desc2}}</p>
+                                        <p class="price">{{$value.price}}</p>
+                                        <div class="figure-img">
+                                            <a href="{{$value.sourceUrl}}" class="figure">
+                                              <img src="{{$value.imgUrl}}" alt="">
+                                            </a>
+                                        </div>
+                                    </li>
+                                    {{/each}}
+                                </script>
+                            </ul>
+                        </div>
+                        <div class="buttonRight buttons" id="r4"> &gt;</div>
+                        <div class="buttonLeft buttons" id="l4"> &lt;</div>
+                        <div class="paginations">
+                            <span class="active"></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--视频部分开始  -->
+        <div id="video">
+            <div class="video-hd">
+                <h2 class="title">视频</h2>
+                <div class="more"><a href="https://www.mi.com/video/">查看全部<i class="iconfont">&#58902;</i></a></div>
+            </div>
+            <div class="video-bd">
+                <ul class="video-list clearfix" id="videoUl">
+                    <script type="text/html" id="videosp">
+                        {{each videoLi}}
+                        <li class="video-item video-item-first">
+                            <div class="figure-img">
+                                <a href="{{$value.videoUrl}}">
+                                <img src="{{$value.imgUrl}}" alt="">
+                                <span><i class="icon-play"></i></span>
+                            </a>
+                            </div>
+                            <h3 class="title"><a href="{{$value.videoUrl}}">{{$value.videotitle}}</a></h3>
+                            <p class="dec">{{$value.desc}}</p>
+                        </li>
+                        {{/each}}
+                    </script>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="site-footer">
+        <div class="container">
+            <div class="footer-service">
+                <ul class="list-service clearfix">
+                    <li><a href="#"> <i class="icon-wrench icon"></i>预约维修服务</a></li>
+                    <li><a href="#"> <i class="icon-heart-empty icon"></i>7天无理由退货</a></li>
+                    <li><a href="#"> <i class="icon-heart-empty icon"></i>15天免费换货</a></li>
+                    <li><a href="#"><i class="icon-gift icon"></i>满150元包邮</a></li>
+                    <li><a href="#"> <i class="icon-map-marker icon"></i>520余家售后网点</a></li>
+                </ul>
+            </div>
+            <div class="footer-links clearfix">
+                <ul>
+                    <li>帮助中心</li>
+                    <li>账户管理</li>
+                    <li>购物指南</li>
+                    <li>订单操作</li>
+                </ul>
+                <ul>
+                    <li>服务支持</li>
+                    <li>售后政策</li>
+                    <li>自助服务</li>
+                    <li>相关下载</li>
+                </ul>
+                <ul>
+                    <li>线下门店</li>
+                    <li>小米之家</li>
+                    <li>服务网点</li>
+                    <li>零售网点</li>
+                </ul>
+                <ul>
+                    <li>关于小米</li>
+                    <li>了解小米</li>
+                    <li>加入小米</li>
+                    <li>联系我们</li>
+                </ul>
+                <ul>
+                    <li>关注我们</li>
+                    <li>新浪微博</li>
+                    <li>小米部落</li>
+                    <li>官方微信</li>
+                </ul>
+                <ul>
+                    <li>特色服务</li>
+                    <li>F码通道</li>
+                    <li>礼物码</li>
+                    <li>防伪查询</li>
+                </ul>
+                <div class="contact">
+                    <p class="phone">400-100-5678</p>
+                    <p class="fare">周一至周日 8:00-18:00 <br>（仅收市话费） </p>
+                    <a href="https://www.mi.com/service/contact/"><i class="icon-share"></i> 24小时在线客服</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-info">
+        <div class="container">
+            <div class="logo"></div>
+            <div class="info-text">
+                <p class="sites">
+                    小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region
+                </p>
+                <p class="sitep2">
+                    ©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号 <br> 违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
+                </p>
+            </div>
+            <div class="info-links">
+                <a href="https://privacy.truste.com/privacy-seal/validation?rid=4fc28a8c-6822-4980-9c4b-9fdc69b94eb8&lang=zh-cn"><img src="./images/v-logo-4.png" alt=""></a>
+                <a href="https://credit.cecdc.com/CX20120926001783002010.html"><img src="./images/v-logo-1.png" alt=""></a>
+                <a href="https://ss.knet.cn/verifyseal.dll?sn=e12033011010015771301369&ct=df&pa=461082"><img src="./images/v-logo-2.png" alt=""></a>
+                <a href="http://www.315online.com.cn/member/315140007.html"><img src="./images/v-logo-3.png" alt=""></a>
+            </div>
+        </div>
+        <div class="slogan"></div>
+    </div>
+
+</body>
+
+</html>
